@@ -30,13 +30,13 @@ maintained sources
 
 Community reports are handled as claims. Claims are useful for fast edge-case
 testing, but they do not silently become stable phone defaults.
-Risk, stable overlap, and conflicts are computed by the validator rather than
-declared by the contributor.
+Confidence, risk, expiry, stable overlap, and conflicts are computed by the
+validator rather than declared by the contributor.
 
-Stable data is conservative. Maintained public sources can be refreshed
-directly. Private vendor or OEM source snapshots must be refreshed and checked
-before they can affect stable output. Missing data is better than stale data
-that looks current.
+Stable data is conservative. Public source records distinguish the upstream
+revision date from the last successful check date. Private vendor or OEM data
+needs a recent live check or a real artifact release date before it can affect
+stable output. Missing data is better than stale data that looks current.
 
 Phones should use local generated data. They should not depend on a live GitHub
 request while loading a SIM, starting a call, sending messages, registering IMS,
@@ -47,8 +47,9 @@ or handling emergency service.
 If carrier data is missing or wrong, open a guided issue in the public repo.
 You do not need write access.
 
-If you tested a specific fix, either open a tested-claim issue or fork the
-public repo and submit a pull request with a claim under `community/claims/`.
+If you tested a specific fix, open a tested-claim issue. Automation converts it
+into validated claim JSON and opens a pull request. You can also fork the
+public repo and submit a claim under `community/claims/` directly.
 
 If you know a maintained source that should be imported, open a source
 suggestion issue.
