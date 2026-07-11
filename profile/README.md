@@ -15,6 +15,7 @@ same fixes alone.
 - Report missing or wrong data: https://github.com/open-carrier-data/open-carrier-data/issues/new/choose
 - Contribution guide: https://github.com/open-carrier-data/open-carrier-data/blob/main/CONTRIBUTING.md
 - Stable snapshot: https://raw.githubusercontent.com/open-carrier-data/open-carrier-data/main/generated/index.json
+- Source revisions and merge evidence: https://raw.githubusercontent.com/open-carrier-data/open-carrier-data/main/generated/evidence-index.json
 - Schema: https://github.com/open-carrier-data/open-carrier-data/tree/main/schemas
 
 ## How The Project Works
@@ -29,6 +30,8 @@ maintained sources
 
 Community reports are handled as claims. Claims are useful for fast edge-case
 testing, but they do not silently become stable phone defaults.
+Risk, stable overlap, and conflicts are computed by the validator rather than
+declared by the contributor.
 
 Stable data is conservative. Maintained public sources can be refreshed
 directly. Private vendor or OEM source snapshots must be refreshed and checked
@@ -63,7 +66,9 @@ okay only when they are carrier settings, not private account credentials.
 - Publish only safe carrier facts.
 - Treat stale or untrusted data as worse than missing data.
 
-## License Status
+## License And Sources
 
-No final project license has been added yet. A clear license for data and
-tooling should be added before broad reuse is encouraged.
+Project software and documentation are Apache-2.0. The project's own rights in
+the neutral data compilation are waived under CC0, subject to upstream rights
+and source-specific terms. Read the public repository's `DATA-LICENSE.md`,
+`SOURCES.md`, and `generated/evidence-index.json` before redistribution.
