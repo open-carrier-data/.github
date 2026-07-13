@@ -16,6 +16,7 @@ same fixes alone.
 - Contribution guide: https://github.com/open-carrier-data/open-carrier-data/blob/main/CONTRIBUTING.md
 - Stable snapshot: https://raw.githubusercontent.com/open-carrier-data/open-carrier-data/main/generated/index.json
 - Source revisions and merge evidence: https://raw.githubusercontent.com/open-carrier-data/open-carrier-data/main/generated/evidence-index.json
+- Device and carrier-artifact coverage: https://raw.githubusercontent.com/open-carrier-data/open-carrier-data/main/generated/devices/index.json
 - Schema: https://github.com/open-carrier-data/open-carrier-data/tree/main/schemas
 
 ## How The Project Works
@@ -27,6 +28,11 @@ maintained sources
 -> generated snapshots and Android files
 -> ROMs/apps/build tools package the data locally
 ```
+
+Device inventories and carrier-artifact coverage are generated beside the
+carrier database. They show which identities are currently listed, which exact
+models appear in carrier evidence, and which vendor artifacts were verified.
+Being listed is not treated as proof that a carrier feature works.
 
 Community reports are handled as claims. Claims are useful for fast edge-case
 testing, but they do not silently become stable phone defaults.
