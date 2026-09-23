@@ -1,81 +1,26 @@
 # Open Carrier Data
 
-Open Carrier Data is a public carrier settings database for open-source phone
-systems.
+A public database of carrier settings for open-source phone systems. It merges
+public sources such as AOSP, LineageOS, GNOME's provider list, Apple's carrier
+bundles, Google Pixel settings, and Samsung firmware into neutral carrier
+profiles, records where every fact came from, and generates the Android files
+a ROM can ship.
 
-It helps ROMs, carrier configuration apps, eSIM tools, and build pipelines
-package current carrier data locally. The goal is better APN, MMS, IMS, RCS,
-eSIM, and Android CarrierConfig support without every project maintaining the
-same fixes alone.
+## Start here
 
-## Start Here
-
+- Database and docs: https://github.com/open-carrier-data/open-carrier-data
 - Website: https://open-carrier-data.github.io/
-- Public database: https://github.com/open-carrier-data/open-carrier-data
 - Report missing or wrong data: https://github.com/open-carrier-data/open-carrier-data/issues/new/choose
-- Contribution guide: https://github.com/open-carrier-data/open-carrier-data/blob/main/CONTRIBUTING.md
-- Stable snapshot: https://raw.githubusercontent.com/open-carrier-data/open-carrier-data/main/generated/index.json
-- Source revisions and merge evidence: https://raw.githubusercontent.com/open-carrier-data/open-carrier-data/main/generated/evidence-index.json
-- Device and carrier-artifact coverage: https://raw.githubusercontent.com/open-carrier-data/open-carrier-data/main/generated/devices/index.json
-- Schema: https://github.com/open-carrier-data/open-carrier-data/tree/main/schemas
+- Latest snapshot index: https://raw.githubusercontent.com/open-carrier-data/open-carrier-data/main/generated/index.json
 
-## How The Project Works
+## Status on 2026-09-23
 
-```text
-maintained sources
--> private import and sanitizing
--> public neutral carrier profiles
--> generated snapshots and Android files
--> ROMs/apps/build tools package the data locally
-```
+6,748 carrier profiles from 8 source families. No profile is verified on a
+phone yet, and the project has no external users yet. Read the limits in the
+public README before you ship the data.
 
-Device inventories and carrier-artifact coverage are generated beside the
-carrier database. They show which identities are currently listed, which exact
-models appear in carrier evidence, and which vendor artifacts were verified.
-Being listed is not treated as proof that a carrier feature works.
+## License
 
-Community reports are handled as claims. Claims are useful for fast edge-case
-testing, but they do not silently become stable phone defaults.
-Confidence, risk, expiry, stable overlap, and conflicts are computed by the
-validator rather than declared by the contributor.
-
-Stable data is conservative. Public source records distinguish the upstream
-revision date from the last successful check date. Private vendor or OEM data
-needs a recent live check or a real artifact release date before it can affect
-stable output. Missing data is better than stale data that looks current.
-
-Phones should use local generated data. They should not depend on a live GitHub
-request while loading a SIM, starting a call, sending messages, registering IMS,
-or handling emergency service.
-
-## How To Help
-
-If carrier data is missing or wrong, open a guided issue in the public repo.
-You do not need write access.
-
-If you tested a specific fix, open a tested-claim issue. Automation converts it
-into validated claim JSON and opens a pull request. You can also fork the
-public repo and submit a claim under `community/claims/` directly.
-
-If you know a maintained source that should be imported, open a source
-suggestion issue.
-
-Do not submit phone numbers, account data, personal passwords, private vendor
-credentials, tokens, full IMSI values, full ICCID values, IMEI, raw logs, raw
-firmware dumps, or private vendor responses. Public APN usernames/passwords are
-okay only when they are carrier settings, not private account credentials.
-
-## Principles
-
-- Keep public data neutral and source-independent.
-- Prefer maintained, repeatable sources over one-off manual entries.
-- Keep community claims separate from stable defaults.
-- Publish only safe carrier facts.
-- Treat stale or untrusted data as worse than missing data.
-
-## License And Sources
-
-Project software and documentation are Apache-2.0. The project's own rights in
-the neutral data compilation are waived under CC0, subject to upstream rights
-and source-specific terms. Read the public repository's `DATA-LICENSE.md`,
-`SOURCES.md`, and `generated/evidence-index.json` before redistribution.
+Software and documentation are Apache-2.0. The project's own rights in the
+data are waived under CC0 1.0, subject to upstream terms. See `DATA-LICENSE.md`
+in the public repository.
