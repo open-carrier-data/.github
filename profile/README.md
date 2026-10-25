@@ -1,5 +1,7 @@
 # Open Carrier Data
 
+> **Early development.** Open Carrier Data is in early development. Data, formats, tools and apps change often, and values can be wrong or missing. Don't rely on it for anything important yet. Feedback and reports are welcome.
+
 A public database of carrier settings for open-source phone systems. It merges
 public sources such as AOSP, LineageOS, GNOME's provider list, Apple's carrier
 bundles, Google Pixel settings, and Samsung firmware into neutral carrier
