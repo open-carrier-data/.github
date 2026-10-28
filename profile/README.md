@@ -15,11 +15,17 @@ a ROM can ship.
 - Report missing or wrong data: https://github.com/open-carrier-data/open-carrier-data/issues/new/choose
 - Latest snapshot index: https://raw.githubusercontent.com/open-carrier-data/open-carrier-data/main/generated/index.json
 
-## Status on 2026-09-23
+<!-- status:start (tools/update_profile_status.py rewrites this block) -->
+## Status on 2026-10-28
 
-6,748 carrier profiles from 8 source families. No profile is verified on a
-phone yet, and the project has no external users yet. Read the limits in the
-public README before you ship the data.
+6,374 carrier profiles from 12 source families, from public commit
+[`a2f96412`](https://github.com/open-carrier-data/open-carrier-data/commit/a2f96412b58fda0ce7599d2b6b9431136f9b3262).
+The oldest source check behind them is from 2026-07-14, and this snapshot
+should ship until 2027-01-10. No observation is verified on a phone yet.
+<!-- status:end -->
+
+The project has no external users yet. Read the limits in the public README
+before you ship the data.
 
 ## License
 

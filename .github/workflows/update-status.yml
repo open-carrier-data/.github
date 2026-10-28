@@ -1,0 +1,51 @@
+name: Update the status numbers
+
+# Weekly, after the Monday imports and the site's own update at 06:00 UTC.
+# This repository is public, so the hosted minutes are free. The public data
+# needs no token; the push uses this repository's own token.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 6 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-status
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout the profile
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          persist-credentials: true
+
+      - name: Checkout the two public index files
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          repository: open-carrier-data/open-carrier-data
+          path: public
+          persist-credentials: false
+          sparse-checkout: |
+            generated/index.json
+            generated/evidence-index.json
+          sparse-checkout-cone-mode: false
+
+      - name: Rewrite the status from the public checkout
+        env:
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          python3 tools/update_profile_status.py public "$(date -u +%F)"
+          if git diff --quiet -- profile/README.md; then
+            echo "Status unchanged."
+            exit 0
+          fi
+          git config user.name "carrier-data-bot"
+          git config user.email "carrier-data-bot@users.noreply.github.com"
+          git commit -q -m "Status numbers from public $(git -C public rev-parse --short HEAD) on $(date -u +%F)" -- profile/README.md
+          git push origin "HEAD:$REF_NAME"
