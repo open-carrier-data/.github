@@ -16,10 +16,10 @@ a ROM can ship.
 - Latest snapshot index: https://raw.githubusercontent.com/open-carrier-data/open-carrier-data/main/generated/index.json
 
 <!-- status:start (tools/update_profile_status.py rewrites this block) -->
-## Status on 2026-10-28
+## Status on 2026-11-02
 
-6,374 carrier profiles from 12 source families, from public commit
-[`a2f96412`](https://github.com/open-carrier-data/open-carrier-data/commit/a2f96412b58fda0ce7599d2b6b9431136f9b3262).
+6,431 carrier profiles from 14 source families, from public commit
+[`08fa0ec5`](https://github.com/open-carrier-data/open-carrier-data/commit/08fa0ec5f21835a45ae63398d7e8636daa8ec69f).
 The oldest source check behind them is from 2026-07-14, and this snapshot
 should ship until 2027-01-10. No observation is verified on a phone yet.
 <!-- status:end -->
